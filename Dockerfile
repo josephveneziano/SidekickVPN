@@ -2,7 +2,20 @@ FROM node:10.15.1-alpine
 
 WORKDIR /usr/app
 
-RUN apk add -U wireguard-tools bash iptables ip6tables linux-headers gettext --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/
+RUN apk update
+
+#RUN apk search wireguard-tools
+#RUN apk fetch wireguard-tools
+#RUN ls
+RUN apk add -U bash make gcc libc-dev git iptables ip6tables linux-headers gettext --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
+RUN git clone https://git.zx2c4.com/wireguard-tools.git && \
+cd wireguard-tools/src/ && \
+make && make install
+
+RUN wg
+#RUN curl -sf  -o /usr/app/wireguard-tools-1.0.20200206.tar.xz  -L  https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200206.tar.xz && tar xf wireguard-tools-1.0.20200206.tar.xz
+#RUN ls wireguard-tools-1.0.20200206/src
+#RUN apk add https://git.zx2c4.com/wireguard-tools/snapshot/wireguard-tools-1.0.20200206.tar.xz
 
 # Backend
 COPY node_server/package*.json ./
