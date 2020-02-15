@@ -66,8 +66,7 @@ This will go ahead and get everything setup and started for you.
 To login into the application once it's setup, you will need to setup a user account. A CLI tool called `user-cli` is included to make this simpler. Run the following commands to get started.
 
 ```
-alias user-cli="docker exec -it
-vpntrafficanalysis_sidekick_1 ./user-cli/bin/user-cli"
+alias user-cli="docker exec -it sidekickvpn_sidekick_1 ./user-cli/bin/user-cli"
 ```
 
 This command can be copy-pasted into the SSH prompt, to make it easier to run the tool.
