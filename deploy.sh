@@ -7,9 +7,9 @@ export PORT="5000"
 export PUBLIC_IP="142.93.186.79"
 
 # Install Wireguard, dnsmasq (DNS server), ufw (Firewall), and envsubst (To put above variables into docker-comose file)
-add-apt-repository ppa:wireguard/wireguard
+add-apt-repository ppa:wireguard/wireguard -y
 apt-get update
-apt-get install wireguard dnsmasq ufw envsubst
+apt-get -y install wireguard dnsmasq ufw envsubst
 
 # Configure Firewall
 ufw allow 22/tcp # SSH
