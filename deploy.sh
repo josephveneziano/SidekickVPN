@@ -26,7 +26,8 @@ echo "server=1.1.1.1" >> /etc/dnsmasq.conf
 echo "interace=wgnet0" >> /etc/dnsmasq.conf
 
 # Generate admin account password
-export ADMIN_PWD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 200 ; echo '')
+#export ADMIN_PWD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 200 ; echo '')
+export ADMIN_PWD=$1
 
 # Substitute variables into docker-compose file
 envsubst < raw-docker-compose.yml > docker-compose.yml
